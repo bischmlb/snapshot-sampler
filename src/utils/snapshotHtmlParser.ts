@@ -11,8 +11,14 @@ const PATH_TO_SNAPSHOTS = path.resolve(__dirname, '../../__snapshots__');
 const PATH_TO_HTML = path.resolve(__dirname, '../../__html__');
 
 export const generateHtmlFromSnapshots = () => {
-    console.log('working directory: ', PATH_TO_SNAPSHOTS);
-    console.log('destination directory:', PATH_TO_HTML, '\n');
+    if (!fs.existsSync(PATH_TO_HTML)) {
+        console.log('Creating directory:', PATH_TO_HTML, '...');
+        fs.mkdirSync(PATH_TO_HTML);
+        console.log('Directory created.', '\n');
+    }
+
+    console.log('Working directory: ', PATH_TO_SNAPSHOTS);
+    console.log('Destination directory:', PATH_TO_HTML, '\n');
 
     const fileList = fs.readdirSync(PATH_TO_SNAPSHOTS);
 
