@@ -1,0 +1,23 @@
+{
+    "name": "snapshot-sampler",
+    "version": "1.0.0",
+    "description": "sends example email from snapshot",
+    "main": "index.ts",
+    "type": "module",
+    "scripts": {
+        "build": "npx tsc",
+        "generate:html": "npm run build && node dist/utils/snapshotHtmlParser.js",
+        "temp": "node dist/utils/snapshotHtmlParser.js",
+        "test": "test"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "@types/express": "^4.17.21",
+        "typescript": "^5.5.4"
+    },
+    "dependencies": {
+        "express": "^4.19.2",
+        "ts-node": "^10.9.2"
+    }
+}
