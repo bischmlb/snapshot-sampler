@@ -1,1 +1,3 @@
-./__html__
+__html__
+node_modules
+dist
