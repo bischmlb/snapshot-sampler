@@ -26,7 +26,6 @@ class Mailer {
 
         try {
             await this.transporter.sendMail({ from: process.env.MAIL_FROM, ...opts });
-            console.log('Successfully sent email');
         } catch (err) {
             console.error(err);
         }

@@ -50,7 +50,7 @@ export const snapshotParser = () => {
                 };
 
                 const newFileName = `${file.split('.')[0]}_${fileId}.json`;
-                // Write html file
+                // Write data file
                 fs.writeFile(`${PATH_TO_DATA}/${newFileName}`, JSON.stringify(data), (err) => {
                     if (err) {
                         console.error(err);

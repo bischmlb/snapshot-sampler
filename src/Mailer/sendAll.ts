@@ -15,7 +15,12 @@ fileList.forEach((file, i) => {
             const dataParsed: DataFile = JSON.parse(data);
             const subject = `(${dataParsed.title}): ${dataParsed.description}`;
             console.log('Sending:', subject);
-            await Mailer.send({ to: 'mathiasbischo@gmail.com', subject, html: dataParsed.html });
+            try {
+                await Mailer.send({ to: 'mathiasbischo@gmail.com', subject, html: dataParsed.html });
+                console.log('...success');
+            } catch (err) {
+                console.error(err);
+            }
         });
     }, i * 5000);
 });
