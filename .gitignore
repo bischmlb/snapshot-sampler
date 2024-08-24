@@ -1,3 +1,4 @@
-__html__
+__data__
 node_modules
 dist
+.env

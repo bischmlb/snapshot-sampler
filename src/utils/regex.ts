@@ -6,11 +6,14 @@
  *
  * Matches all snapshots descriptions containing html
  */
-export const SNAPSHOT_DESCRIPTION = /exports\[`\w+\/([A-Za-z]+)\s([\w,;"\s]+)\`][\s|\S]*?<!doctype\shtml>/gm;
+export const SNAPSHOT_DESCRIPTION = /exports\[`\w+\/([A-Za-z]+)\s([\w,;"\s]+)\s[0-9]{1}\`][\s|\S]*?<!doctype\shtml>/gm;
 
 /**
- * @group1 the html
- *
  * Matches all html
  */
 export const SNAPSHOT_HTML = /<!doctype[\s\S]*?<\/html>/gm;
+
+/**
+ * Matches every test case containing html
+ */
+export const SNAPSHOT = /exports[\s|\S]*?(<!doctype[\s\S]*?<\/html>)/gm;
