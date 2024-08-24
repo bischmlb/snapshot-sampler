@@ -6,7 +6,7 @@
  *
  * Matches all snapshots descriptions containing html
  */
-export const SNAPSHOT_DESCRIPTION = /exports\[`\w+\/([A-Za-z]+)\s([\w,;"\s]+)\s[0-9]{1}\`][\s|\S]*?<!doctype\shtml>/gm;
+export const SNAPSHOT_DESCRIPTION = /exports\[`\w+\/[A-Za-z]+\s([\w,;"\s]+)\s[0-9]{1}\`][\s|\S]*?<!doctype\shtml>/gm;
 
 /**
  * Matches all html

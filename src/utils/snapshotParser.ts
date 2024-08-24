@@ -17,7 +17,7 @@ export const snapshotParser = () => {
 
     console.log('--------------');
     console.log('SNAPS:', PATH_TO_SNAPSHOTS);
-    console.log('HTML:', PATH_TO_DATA);
+    console.log('DATA:', PATH_TO_DATA);
     console.log('--------------');
 
     const fileList = fs.readdirSync(PATH_TO_SNAPSHOTS);
@@ -37,19 +37,20 @@ export const snapshotParser = () => {
             }
             let fileId = 0;
             for (const match of matches) {
+                const baseFileName = file.split('.')[0];
                 const [meta] = match[0].matchAll(SNAPSHOT_DESCRIPTION);
                 const [html] = match[0].matchAll(SNAPSHOT_HTML);
 
                 const data = {
                     /* Snapshot title */
-                    title: meta[1],
+                    title: baseFileName,
                     /* Snapshot test case description */
-                    description: meta[2],
+                    description: meta[1],
                     /* Expected html outcome for test */
                     html: html[0],
                 };
 
-                const newFileName = `${file.split('.')[0]}_${fileId}.json`;
+                const newFileName = `${baseFileName}_${fileId}.json`;
                 // Write data file
                 fs.writeFile(`${PATH_TO_DATA}/${newFileName}`, JSON.stringify(data), (err) => {
                     if (err) {
