@@ -25,22 +25,18 @@ export const generateHtmlFromSnapshots = () => {
     for (const file of fileList) {
         fs.readFile(`${PATH_TO_SNAPSHOTS}/${file}`, 'utf-8', (err, data) => {
             if (err) {
-                console.error(err);
-                return;
+                return console.error(err);
             }
 
-            const htmlMatches = SNAPSHOT_HTML.exec(data);
-
+            const htmlMatches = data.matchAll(SNAPSHOT_HTML);
             if (htmlMatches === null) {
-                console.error('Could not find any matches for file:', file);
-                return;
+                return console.error('Could not find any matches for file:', file);
             }
 
             let fileId = 0;
             for (const match of htmlMatches) {
                 const newFileName = `${file.split('.')[0]}_${fileId}.html`;
-
-                fs.writeFile(`${PATH_TO_HTML}/${newFileName}`, match, (err) => {
+                fs.writeFile(`${PATH_TO_HTML}/${newFileName}`, match[0], (err) => {
                     if (err) {
                         console.error(err);
                     } else {
@@ -53,4 +49,5 @@ export const generateHtmlFromSnapshots = () => {
     }
 };
 
+// TODO make this part of server
 generateHtmlFromSnapshots();

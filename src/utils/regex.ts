@@ -13,4 +13,4 @@ export const SNAPSHOT_DESCRIPTION = /exports\[`\w+\/([A-Za-z]+)\s([\w,;"\s]+)\`]
  *
  * Matches all html
  */
-export const SNAPSHOT_HTML = /(<!doctype\shtml>[\s|\S]*?<html[\s|\S]*?<\/html>)/gm;
+export const SNAPSHOT_HTML = /<!doctype[\s\S]*?<\/html>/gm;
