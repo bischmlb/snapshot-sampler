@@ -6,7 +6,7 @@
     "type": "module",
     "scripts": {
         "build": "npx tsc && tsc-alias",
-        "generate:html": "npm run build && node dist/utils/snapshotHtmlParser.js",
+        "generate:html": "npm run build && node dist/utils/snapshotParser.js",
         "send:all": "npx tsx src/mailer/sendAll.ts",
         "send": "npx tsx src/mailer/send.ts",
         "start": "node dist/index.js"
