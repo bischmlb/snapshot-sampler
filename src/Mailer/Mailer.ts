@@ -11,7 +11,6 @@ type SendOptions = {
 
 class Mailer {
     public static transporter: Transporter;
-    public static snapshotPath: string;
 
     public static async send(opts: SendOptions): Promise<void> {
         if (!this.transporter) {

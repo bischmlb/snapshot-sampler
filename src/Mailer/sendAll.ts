@@ -16,7 +16,7 @@ fileList.forEach((file, i) => {
             const subject = `(${dataParsed.title}): ${dataParsed.description}`;
             console.log('Sending:', subject);
             try {
-                await Mailer.send({ to: '', subject, html: dataParsed.html });
+                await Mailer.send({ to: 'mathiasbischo@gmail.com', subject, html: dataParsed.html });
                 console.log('...success');
             } catch (err) {
                 console.error(err);
